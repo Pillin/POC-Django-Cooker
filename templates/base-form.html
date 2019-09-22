@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block extrahead %}
+<style>
+    .helptext {
+        display: block;
+        color: #a7a7a7;
+        font-size: 11px;
+        text-align: right;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="row valign change-form">
+    <div class="{% block formclass %}col s12 m8 offset-m2 l8 offset-l2{% endblock %}">
+        <div class="card">
+            <dmc-form>
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="card-content">
+                        <span class="card-title grey-text text-darken-2">{% block formtitle %}Form{% endblock %}</span>
+                        {% csrf_token %}
+                        {% block formbody %}{% endblock %}
+                        {% block formfoottitle %}{% endblock %}
+                    </div>
+                    <div class="card-action">
+                        {% block actions %}
+                        <div class="right-align">
+                            {% block formbuttons %}<button class="btn btn-primary"
+                                type="submit">{% block buttontitle %}Enviar{% endblock %}</button>{% endblock %}
+                        </div>
+                        {% endblock %}
+                    </div>
+                </form>
+            </dmc-form>
+        </div>
+    </div>
+</div>
+{% block result %}
+{% endblock %}
+{% endblock %}

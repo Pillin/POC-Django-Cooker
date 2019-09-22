@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block extrahead %}
+{% endblock %}
+
+{% block content %}
+<div class="row valign change-form">
+  <div class="{% block formclass %}col s12 m8 offset-m2 l8 offset-l2{% endblock %}">
+    <div class="card">
+      <div class="collection">
+        <a href="{% url 'commensal-list' %}" class="collection-item">Comensales</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="collection">
+        <a href="{% url 'menu-list' %}" class="collection-item">Menus</a>
+        <a href="{% url 'plate-list' %}" class="collection-item">Platos</a>
+        <a href="{% url 'meal-list' %}" class="collection-item">Comidas</a>
+        <a href="{% url 'tag-list' %}" class="collection-item">Etiquetas</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% block result %}
+{% endblock %}
+{% endblock %}

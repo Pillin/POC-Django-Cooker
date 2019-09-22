@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block extrahead %}
+
+
+<style>
+  .delete-button {
+    color: #ee6e73;
+  }
+  .container-create.container-create {
+    text-align: right;
+    margin-top: 20px;
+  }
+
+</style>
+{% endblock %}
+{% block content %}
+{% if create_url %}
+<div class="row valign change-form">
+  <div class="col s12 m8 offset-m2 l8 offset-l2 container-create">
+    <a href="{% url create_url %}" class="waves-effect waves-light btn-small">
+      Agregar
+    </a>
+  </div>
+</div>
+{% endif %}
+<div class="row valign change-form">
+  <div class="{% block formclass %}col s12 m8 offset-m2 l8 offset-l2{% endblock %}">
+    <div class="card">
+      {% if object_list|length > 0 %}
+      <div class="collection">
+        <ul class="collection with-header">
+          {% for element in object_list %}
+          <li class="collection-item">
+            <div> {{element|stringformat:'s'}}
+              {% if delete_url %}
+              <a href="{% url delete_url element.id %}" class="secondary-content delete-button">
+                <i class="material-icons">delete</i>
+              </a>
+              {% endif %}
+              {% if update_url %}
+              <a href="{% url update_url element.id %}" class="secondary-content">
+                <i class="material-icons">edit</i>
+              </a>
+              {% endif %}
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% block result %}
+{% endblock %}
+{% endblock %}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>{% load static %}
+<html lang="es">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Ñam Ñam{% endblock %}</title>
+    {% block head %}
+    {% block css %}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    {% block extracss %}{% endblock %}
+    {% endblock %}
+    {% block extrahead %}{% endblock %}
+    {% endblock %}
+  </head>
+
+  <body>
+    {% block js %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    {% endblock %}
+    {% block extrajs %}{% endblock %}
+    {% block sidebar %}{% endblock %}
+    {% include 'navbar.html' with user=request.user %}
+    <div class="{% block container_class %}{% endblock %}">
+      {% block content %}{% endblock %}
+    </div>
+    {% if request.user.is_authenticated %}
+    {% include 'footer.html' with distribution=request.user.distribution.first %}
+    {% endif %}
+  </body>
+
+</html>

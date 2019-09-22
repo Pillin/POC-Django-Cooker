@@ -1,0 +1,55 @@
+ <style>
+     .extra-footer {
+         position: fixed;
+         width: 100%;
+         bottom: 0px;
+     }
+
+     .page-footer.extra-footer {
+         padding-top: 0px;
+     }
+
+     .extra-footer .row {
+         margin-bottom: 0px;
+     }
+     .distribution-button {
+        border: 1px solid white;
+        background: transparent;
+     }
+     .text-align-right {
+        text-align: right;
+     }
+
+ </style>
+
+ <footer class="page-footer extra-footer">
+     <div class="row">
+         <div class="col l4 s12">
+             {% if  user.is_authenticated %}
+                 {%if distribution.distribution_hour_link %}
+                 Hora de envío: {{distribution.distribution_hour_link}}
+                 {% endif %}
+                 {% if distribution.end_available_distribution_link %}
+                 - Hora de finalización: {{distribution.end_available_distribution_link}}
+                 {% endif %}
+                 <br />
+                 {%if distribution %}
+                 <a href="{% url 'distribution-update' distribution.id %}" class="waves-effect waves-light btn-small distribution-button">
+                     Editar distribución
+                 </a>
+             {% else %}
+             <a href="{% url 'distribution-create' %}" class="waves-effect waves-light btn-small distribution-button">
+                 Agregar distribución
+             </a>
+             {% endif %}
+             {% endif %}
+         </div>
+         <div class="col l4 s12">
+         </div>
+         <div class="col l4 s12 text-align-right">
+             {{distribution.name}}<br />
+             © 2019 Copyright
+         </div>
+     </div>
+
+ </footer>

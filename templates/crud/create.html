@@ -1,0 +1,9 @@
+{% extends "base-form.html" %}
+{% load staticfiles static %}
+{% block formtitle %}
+    {{titlename}}
+{% endblock %}
+{% block formbody %}
+    {{form.media}}
+    {{form}}
+{% endblock %}

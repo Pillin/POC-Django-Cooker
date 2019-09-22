@@ -1,0 +1,13 @@
+{% extends "base-form.html" %}
+{% load staticfiles static %}
+{% block formtitle %}
+    Hola!
+    El menú de hoy =)
+{% endblock %}
+{% block formbody %}
+    {{ form.as_p }}
+{% endblock %}
+
+{% block formfoottitle %}
+    Que tengas un bello día!
+{% endblock %}
