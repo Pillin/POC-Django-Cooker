@@ -42,6 +42,12 @@ After that, you need to create the enviroments and activate it, then you run the
 docker exec -it <container_id> python3 manage.py createsuperuser
 ```
 
+### Run the container
+
+```sh
+docker-compose up --force-recreate -d
+```
+
 ---
 
 ## Model
