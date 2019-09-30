@@ -31,4 +31,19 @@ After that, you need to create the enviroments and activate it, then you run the
 >> celery -A deliveries worker -l info
 >> python manage.py runserver
 ```
+
 ---
+
+## Docker
+
+### Creation the first user
+
+```sh
+docker exec -it <container_id> python3 manage.py createsuperuser
+```
+
+---
+
+## Model
+
+to be continue...
