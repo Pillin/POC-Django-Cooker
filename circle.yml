@@ -1,0 +1,12 @@
+machine:
+  python:
+    version: 3.6.7
+
+dependencies:
+  override:
+    - pip install -r requirements.txt
+
+test:
+  override:
+    - pep8 . --max-line-length=120 --exclude=migrations
+    - python manage.py test
