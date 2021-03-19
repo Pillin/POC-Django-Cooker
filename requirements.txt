@@ -16,7 +16,7 @@ django-material==1.5.8
 django-material-widgets==1.0.0b3
 django-slack==5.13.0
 django-widget-tweaks==1.4.5
-djangorestframework==3.9.4
+djangorestframework==3.11.2
 djangorestframework-jwt==1.11.0
 freezegun==0.3.12
 get==2019.4.13
